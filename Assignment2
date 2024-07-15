@@ -1,0 +1,103 @@
+1. Write a program to convert Celsius to Fahrenheit using appropriate datatypes and literal conventions
+
+public class TemperatureConverter {
+
+    public static double celsiusToFahrenheit(double celsius) {
+        return celsius * 9 / 5 + 32;
+    }
+
+    public static void main(String[] args) {
+        double celsiusTemp = 25.0; // Celsius temperature as a double
+        double fahrenheitTemp = celsiusToFahrenheit(celsiusTemp);
+        System.out.print(celsiusTemp + "°C is equal to " + fahrenheitTemp + "°F\n");
+    }
+}
+
+2. Write a program to solve a quadratic equation (ax^2+bx+c). Take a,b and c from user and use quadratic formula.
+
+public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the a value:");
+        double a = sc.nextDouble();
+        System.out.println("Enter the b value:");
+        double b =sc.nextDouble();
+        System.out.println("Enter the c value:");
+        double c = sc.nextDouble();
+        
+        double insideRoot = b*b - 4*a*c;
+        System.out.println("Root 1: " + insideRoot);
+        if(insideRoot > 0){
+            double root1 = (-b + Math.sqrt(insideRoot)) / (2 * a);
+            double root2 = (-b - Math.sqrt(insideRoot)) / (2 * a);
+            System.out.println("The equation has two real and distinct roots:");
+            System.out.println("Root 1: " + root1);
+            System.out.println("Root 2: " + root2);
+        } else if (insideRoot == 0){
+            double root = -b / (2*a);
+            System.out.println("The equation has two equal roots:");
+            System.out.println("Root: " + root);
+        } else {
+            double realPart = -b / (2 * a);
+            double imaginaryPart = Math.sqrt(-insideRoot) / (2 * a);
+            System.out.println("The equation has two complex roots:");
+            System.out.println("Root 1: " + realPart + " + " + imaginaryPart + "i");
+            System.out.println("Root 2: " + realPart + " - " + imaginaryPart + "i");
+      
+        }
+            
+    }
+
+3. Get two numbers from user and perform bitwise AND< OR, XOR, left and right shift operations on them.
+
+import java.util.Scanner;
+
+public class BitwiseOperations {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+
+        int andResult = num1 & num2;
+        int orResult = num1 | num2;
+        int xorResult = num1 ^ num2;
+        int leftShiftResult = num1 << num2;
+        int rightShiftResult = num1 >> num2;
+
+        System.out.println("Bitwise AND: " + andResult);
+        System.out.println("Bitwise OR: " + orResult);
+        System.out.println("Bitwise XOR: " + xorResult);
+        System.out.println("Left Shift: " + leftShiftResult);
+        System.out.println("Right Shift: " + rightShiftResult);
+    }
+}
+
+4. Write a program with an if statement. Declare one variable inside the if block and another one outside. Print both variables inside and outside the if block to understand variable scope. 
+
+public class VariableScopeDemo {
+
+    public static void main(String[] args) {
+        int outsideIf = 10; 
+
+        if (outsideIf > 5) {
+            int insideIf = 20; 
+            System.out.println("Inside if block:");
+            System.out.println("outsideIf: " + outsideIf);
+            System.out.println("insideIf: " + insideIf);
+        }
+        System.out.println("Outside if block:");
+        System.out.println("outsideIf: " + outsideIf);
+        
+        System.out.println("insideIf: " + insideIf); 
+    }
+}
+
+/*VariableScopeDemo.java:16: error: cannot find symbol
+        System.out.println("insideIf: " + insideIf); // Variable 'insideIf' is not accessible here
+                                          ^
+  symbol:   variable insideIf
+  location: class VariableScopeDemo */

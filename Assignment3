@@ -1,0 +1,97 @@
+1. Take three numbers from the user and print the greatest number.
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter three integers:");
+	    int a = sc.nextInt();
+	    int b = sc.nextInt();
+	    int c = sc.nextInt();
+		int greatest = a;
+		if(b > greatest){
+		    greatest = b;
+		}
+		if(c > greatest){
+		    greatest = c;
+		}
+		System.out.println(greatest + " is the greatest element");
+	}
+}
+
+2. Create a program that takes a student's score as input and outputs their corresponding grade.
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter the student's score:");
+	    int score = sc.nextInt();
+	    char grade ;
+	    if(score<0 || score>100){
+	        System.out.println("Invalid score");
+	        return;
+	    }
+	    if(score >= 90 ){
+	        grade = 'A';
+	    } else if(score>=80){
+	        grade = 'B';
+	    } else if(score>=70){
+	        grade = 'C';
+	    } else if (score>=60){
+	        grade='D';
+	    } else if (score>=50){
+	        grade='E';
+	    } else {
+	        grade = 'F';
+	    }
+	    System.out.println("Grade for the score " + score + " is " + grade);
+	}
+}
+
+3. Write a program to print multiplication table of a given number in a neat format
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Enter the number to view its multiplication table:");
+	    int num = sc.nextInt();
+	    for(int i=1; i<=10; i++){
+	        System.out.println(i + " x " + num + " = " + (i*num));
+	    }
+	}
+}
+
+4. Write a program to find second occurrence of a given number in an array
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    
+	    System.out.println("Enter the size of the array:");
+	    int length = sc.nextInt();
+	    int[] arr=new int[length];
+	    System.out.println("Enter the array elements:");
+	    for(int i=0; i<length; i++){
+	        arr[i] = sc.nextInt();
+	    }
+	    System.out.println("Enter the number to found:");
+	    int num=sc.nextInt();
+	    boolean firstOccur = false;
+	    for(int i=0; i<length; i++){
+	        if(arr[i] == num){
+	            if(firstOccur){
+	                System.out.println(num + " has occured for second time at index" + i);
+	                return;
+	            }
+	            firstOccur = true;
+	        }
+	    }
+	    System.out.println(num + " does not occur twice in given array" );
+	}
+}

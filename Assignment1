@@ -1,0 +1,139 @@
+1. Exercism - Day 1 - Hello World! - https://exercism.org/tracks/java/exercises/hello-world
+
+public class Greeter{
+     public static String getString{
+return “Hello, World”;
+     }
+     public static void main(String[] args) {
+	System.out.println(getString());
+     }
+}
+
+
+2. Write a program to demonstrate compatible type conversions. For eg., float to int, double to float, int to short
+
+public class TypeConvert {
+
+    public static void main(String[] args) {
+        byte byteValue = 50;
+        short shortValue = byteValue;
+        int intValue = shortValue;
+        long longValue = intValue;
+        float floatValue = longValue;
+        double doubleValue = floatValue;
+
+        System.out.println("Implicit Conversions:");
+        System.out.println("byte: " + byteValue);
+        System.out.println("byte to short: " + shortValue);
+        System.out.println("short to int: " + intValue);
+        System.out.println("int to long: " + longValue);
+        System.out.println("long to float: " + floatValue);
+        System.out.println("float to double: " + doubleValue);
+
+        double originalDouble = 123.456;
+        
+        floatValue = (float) originalDouble;
+        longValue = (long) floatValue ;
+        intValue = (int) longValue;
+        shortValue = (short) intValue;
+        byteValue = (byte) shortValue;
+
+        System.out.println("\nExplicit Conversions:");
+        System.out.println("Double: " + originalDouble);
+        System.out.println("double to float: " + floatValue);
+        System.out.println("float to long: " + longValue);
+        System.out.println("long to int: " + intValue);
+        System.out.println("int to short: " + shortValue);
+        System.out.println("short to byte: " + byteValue);
+    }
+}
+
+3.Create multiple classes in single file and compile and explore how many .class files are generated.
+
+public class AnimalClasses {
+
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        Cat cat = new Cat();
+
+        dog.sound();
+        cat.sound();
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+class Cat extends Animal {
+    void sound() {
+        System.out.println("Meow");
+    }
+}
+
+Output:
+After compiling, result of dir:
+11-07-2024  18:06               348 Animal.class
+11-07-2024  18:06               351 Animal.java
+11-07-2024  18:06               389 Cat.class
+11-07-2024  18:06               389 Dog.class
+
+ The Java compiler has generated  separate .class file for each class even though they are in the same java source file.
+
+4. Write a Java program that gets a number from the user and displays the name of the weekday. Use enum.
+
+import java.util.Scanner;
+
+public class WeekdayName {
+
+    public enum Weekday {
+        SUNDAY,
+        MONDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number between 1 and 7 for weekday: ");
+        int dayNumber = scanner.nextInt();
+
+        if (dayNumber < 1 || dayNumber > 7) {
+            System.out.println("Invalid input. Please enter a number between 1 and 7.");
+        } else {
+            int index = dayNumber - 1;
+            Weekday day = Weekday.values()[index];
+            System.out.println("Day of the week: " + day);
+        }
+
+        scanner.close();
+    }
+}
+
+5. Write a program that calculates the average weight of 10 people. Use descriptive and meaningful variable names following Java naming conventions. Use proper datatypes for the variables.
+import java.util.*;
+
+public class Project1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        final int numberOfPeople = 10;
+        double totalWeight = 0.0;
+
+        for (int i = 1; i <= numberOfPeople; i++) {
+            System.out.print("Enter the weight of person " + i + " :");
+            double weight = scanner.nextDouble();
+            totalWeight += weight;
+        }
+        double averageWeight = totalWeight / numberOfPeople;
+
+        System.out.printf("The average weight: %.3f kg%n", averageWeight);
+    }
+        
+        
+}

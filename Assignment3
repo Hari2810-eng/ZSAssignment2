@@ -95,3 +95,51 @@ public class Main
 	    System.out.println(num + " does not occur twice in given array" );
 	}
 }
+
+5.Write a program to print prime numbers between 1 to 30
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    
+	    System.out.println("Prime numbers between 1 to 30:");
+	    for(int num=2;num<=30;num++ ){
+	        boolean isPrime = true;
+	        
+	        for(int i=2; i<=Math.sqrt(num); i++){
+	            if(num%i == 0){
+	                isPrime=false;
+	                break;
+	            }
+	        }
+	        if(isPrime)
+	            System.out.print(num + " ");
+	    }
+	}    
+}
+
+6. Write a program to find the sum of even numbers only in a given array. Use continue.
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    
+	    System.out.println("Enter the size of the array:");
+	    int length = sc.nextInt();
+	    int sum=0;
+	    int[] arr=new int[length];
+	    System.out.println("Enter the array elements:");
+	    for(int i=0; i<length; i++){
+	        arr[i] = sc.nextInt();
+	    }
+	    for(int i=0; i<length; i++){
+	        if(arr[i]%2!=0)
+	            continue;
+	        sum+=arr[i];
+	    }
+	    System.out.println("Sum of the even numbers in the given array :"+sum );
+	}    
+}

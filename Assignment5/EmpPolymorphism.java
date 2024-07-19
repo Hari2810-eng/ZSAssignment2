@@ -34,6 +34,7 @@ class HourlyEmployee extends Employee{
     int getSalary(){
         return salary;
     }
+    @Override
     String getEmpDetails(){
         return super.getEmpDetails() + ":, Hours Worked: " + hourWorked + ", Salary: " + salary;
     }
@@ -49,6 +50,7 @@ class SalariedEmployee extends Employee{
     int getSalary(){
         return annualSalary;
     }
+    @Override
     public String getEmpDetails(){
         return super.getEmpDetails() +", Salary: "+annualSalary;
     }

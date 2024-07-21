@@ -33,6 +33,5 @@ public class CapitalizeSentence {
         String sentence = scanner.nextLine();
         String capitalized = capitalizeFirstLetter(sentence);
         System.out.println("Capitalized Sentence: " + capitalized);
-        scanner.close();
     }
 }

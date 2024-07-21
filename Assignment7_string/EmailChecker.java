@@ -10,14 +10,14 @@ public class EmailChecker {
         for (int i = 0; i < length; i++) {
             if (email.charAt(i) == '@') {
                 if (atIndex != -1) {
-                    return false; // More than one '@'
+                    return false; 
                 }
                 atIndex = i;
             }
         }
 
         if (atIndex == -1 || atIndex == 0 || atIndex == length - 1) {
-            return false; // No '@' or '@' is at the start/end
+            return false;
         }
 
         int dotIndex = -1;
@@ -35,9 +35,10 @@ public class EmailChecker {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter an email address to validate: ");
         String email = scanner.nextLine();
-        boolean isValid = isValidEmail(email);
-        System.out.println("Email is valid: " + isValid);
-        scanner.close();
+        if(isValidEmail(email))
+          System.out.println("Given email is valid");
+        else
+            System.out.println("Given email is not valid");
     }
 
 }

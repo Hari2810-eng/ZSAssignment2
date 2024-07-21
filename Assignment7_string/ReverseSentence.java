@@ -30,7 +30,6 @@ public class ReverseSentence{
         String sentence = scanner.nextLine();
         String reversedWords = reverseWords(sentence);
         System.out.println("Reversed Words: " + reversedWords);
-        scanner.close();
     }
 
 }

@@ -1,27 +1,31 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JaggedArrayWeights {
 
-    public static void addWeight(ArrayList<ArrayList<Integer>> weights, int personIndex, int weight) {
-        if (personIndex >= 0 && personIndex < weights.size()) {
-            weights.get(personIndex).add(weight);
+    public static void addWeight(int[][] weights, int[] sizes, int personIndex, int weight) {
+        if (personIndex >= 0 && personIndex < weights.length) {
+            if (sizes[personIndex] == weights[personIndex].length) {
+                int newSize = sizes[personIndex] == 0 ? 1 : weights[personIndex].length * 2;
+                int[] newWeights = new int[newSize];
+                System.arraycopy(weights[personIndex], 0, newWeights, 0, sizes[personIndex]);
+                weights[personIndex] = newWeights;
+            }
+            weights[personIndex][sizes[personIndex]++] = weight;
         } else {
             System.out.println("Invalid person index.");
         }
     }
 
-    public static int getMinimumWeight(ArrayList<ArrayList<Integer>> weights, int personIndex) {
-        if (personIndex >= 0 && personIndex < weights.size()) {
-            ArrayList<Integer> personWeights = weights.get(personIndex);
-            if (personWeights.isEmpty()) {
+    public static int getMinimumWeight(int[][] weights, int[] sizes, int personIndex) {
+        if (personIndex >= 0 && personIndex < weights.length) {
+            if (sizes[personIndex] == 0) {
                 System.out.println("No weights recorded for person " + (personIndex + 1));
                 return -1;
             }
             int minWeight = Integer.MAX_VALUE;
-            for (int weight : personWeights) {
-                if (weight < minWeight) {
-                    minWeight = weight;
+            for (int i = 0; i < sizes[personIndex]; i++) {
+                if (weights[personIndex][i] < minWeight) {
+                    minWeight = weights[personIndex][i];
                 }
             }
             return minWeight;
@@ -36,11 +40,13 @@ public class JaggedArrayWeights {
         System.out.print("Enter the number of persons (N): ");
         int N = scanner.nextInt();
 
-        ArrayList<ArrayList<Integer>> weights = new ArrayList<>(N);
+        int[][] weights = new int[N][];
+        int[] sizes = new int[N];
+
         for (int i = 0; i < N; i++) {
-            weights.add(new ArrayList<>());
+            weights[i] = new int[0]; 
         }
-        
+
         while (true) {
             System.out.println("Menu:");
             System.out.println("1. Add weight");
@@ -55,12 +61,12 @@ public class JaggedArrayWeights {
                     int personIndex = scanner.nextInt();
                     System.out.print("Enter the weight: ");
                     int weight = scanner.nextInt();
-                    addWeight(weights, personIndex, weight);
+                    addWeight(weights, sizes, personIndex, weight);
                     break;
                 case 2:
                     System.out.print("Enter the person index (0 to " + (N - 1) + "): ");
                     personIndex = scanner.nextInt();
-                    int minWeight = getMinimumWeight(weights, personIndex);
+                    int minWeight = getMinimumWeight(weights, sizes, personIndex);
                     if (minWeight != -1) {
                         System.out.println("Minimum weight of person " + (personIndex + 1) + " is: " + minWeight);
                     }

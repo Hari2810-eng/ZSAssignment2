@@ -13,64 +13,6 @@ package com.mycompany.assignment8_classesobject;
 import java.util.*;
 
 public class BookDTO {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        List<BookDTO> books = new ArrayList<>();
-        Set<String> isbnSet = new HashSet<>();
-
-        System.out.print("Enter the number of books you want to enter: ");
-        int bookno = scanner.nextInt();
-        scanner.nextLine(); 
-        
-        for (int i = 0; i < bookno; i++) {
-            System.out.println("\nBook " + (i + 1) + " details:");
-
-            BookDTO book = new BookDTO();
-
-            System.out.print("Enter the title of the book: ");
-            book.setTitle(scanner.nextLine());
-            
-            String isbn;
-            while (true) {
-                System.out.print("Enter the ISBN of the book: ");
-                isbn = scanner.nextLine();
-                if (isbnSet.contains(isbn)) {
-                    System.out.println("ISBN already exists. Please enter a unique ISBN.");
-                } else {
-                    isbnSet.add(isbn);
-                    book.setIsbn(isbn);
-                    break;
-                }
-            }
-            
-            
-            System.out.print("Enter the author of the book: ");
-            book.setAuthor(scanner.nextLine());
-            
-            System.out.print("Enter the price of the book: ");
-            book.setPrice(scanner.nextDouble());
-            scanner.nextLine();
-            
-            System.out.print("Enter the publication year of the book: ");
-            book.setPublicationYear(scanner.nextInt());
-            scanner.nextLine();
-            
-            System.out.print("Enter the rating of the book (out of 5): ");
-            book.setRating(scanner.nextDouble());
-            scanner.nextLine();
-            
-            books.add(book);
-        }
-
-
-        for (int i = 0; i < books.size(); i++) {
-            System.out.print("\n\n----Details of book " + (i + 1) + "----");
-            System.out.println(books.get(i).details());
-            System.out.print("-------------------------");
-        }
-    }
-
     private String title;
     private String author;
     private String isbn;
@@ -150,5 +92,62 @@ public class BookDTO {
                "\nPrice: " + price +
                "\nPublicationYear: " + publicationYear +
                "\nRating: " + rating;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<BookDTO> books = new ArrayList<>();
+        Set<String> isbnSet = new HashSet<>();
+
+        System.out.print("Enter the number of books you want to enter: ");
+        int bookno = scanner.nextInt();
+        scanner.nextLine(); 
+        
+        for (int i = 0; i < bookno; i++) {
+            System.out.println("\nBook " + (i + 1) + " details:");
+
+            BookDTO book = new BookDTO();
+
+            System.out.print("Enter the title of the book: ");
+            book.setTitle(scanner.nextLine());
+            
+            String isbn;
+            while (true) {
+                System.out.print("Enter the ISBN of the book: ");
+                isbn = scanner.nextLine();
+                if (isbnSet.contains(isbn)) {
+                    System.out.println("ISBN already exists. Please enter a unique ISBN.");
+                } else {
+                    isbnSet.add(isbn);
+                    book.setIsbn(isbn);
+                    break;
+                }
+            }
+            
+            
+            System.out.print("Enter the author of the book: ");
+            book.setAuthor(scanner.nextLine());
+            
+            System.out.print("Enter the price of the book: ");
+            book.setPrice(scanner.nextDouble());
+            scanner.nextLine();
+            
+            System.out.print("Enter the publication year of the book: ");
+            book.setPublicationYear(scanner.nextInt());
+            scanner.nextLine();
+            
+            System.out.print("Enter the rating of the book (out of 5): ");
+            book.setRating(scanner.nextDouble());
+            scanner.nextLine();
+            
+            books.add(book);
+        }
+
+
+        for (int i = 0; i < books.size(); i++) {
+            System.out.print("\n\n----Details of book " + (i + 1) + "----");
+            System.out.println(books.get(i).details());
+            System.out.print("-------------------------");
+        }
     }
 }

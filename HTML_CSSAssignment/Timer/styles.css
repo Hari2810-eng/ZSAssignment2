@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* Reduced overall height for smaller appearance */
+    width: 90vw;  /* Reduced overall width for smaller appearance */
+}
+
+.timer {
+    display: flex;
+    width: 100%;
+    height: 60%; /* Reduce the height occupied by timer boxes */
+    justify-content: space-around;
+}
+
+
+.time-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    border: 1px solid #444;
+    color: #61dafb;
+    font-size: 20vw; /* Increased font size for larger numbers */
+    font-weight: bold;
+    margin: 0 10px; /* Add horizontal margin for spacing */
+    border-radius: 0;
+    transition: background 0.3s;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.time-box:hover {
+    background: #555;
+}
+
+.time-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #333, #222);
+    z-index: 0;
+}
+
+.time-box span {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(97, 218, 251, 0.5), 0 0 20px rgba(97, 218, 251, 0.3);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.controls {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.controls button {
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.2vw; /* Reduced button size */
+    background: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.controls button:hover {
+    background: #21a1f1;
+    transform: translateY(-2px);
+}
+
+.controls button:active {
+    transform: translateY(1px);
+}

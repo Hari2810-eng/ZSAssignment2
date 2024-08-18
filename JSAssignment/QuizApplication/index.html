@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <div id="name-entry" class="question-card">
+            <h2>Enter your name to start the quiz:</h2>
+            <input type="text" id="player-name" placeholder="Your name" required />
+            <button id="start-quiz-button">Start Quiz</button>
+        </div>
+        <div id="progress-bar" style="display: none;">
+            <div id="progress-bar-fill"></div>
+        </div>
+        <div id="quiz" style="display: none;"></div>
+        <div class="feedback" id="feedback"></div>
+    </div>
+    <div id="button-container" style="display: none;">
+        <button id="prev" onclick="prevQuestion()">Previous</button>
+        <button id="next" onclick="nextQuestion()">Next</button>
+        <button id="submit" onclick="submitQuiz()">Submit</button>
+    </div>
+    <div id="result" style="display: none;">
+        <h2>Thank you for playing, <span id="player-name-display"></span>!</h2>
+        <p>Your score: <span id="player-score"></span> out of <span id="total-questions"></span></p>
+    </div>
+    
+    <div id="modal-overlay">
+        <div id="modal">
+            <h2>Leaderboard</h2>
+            <div id="leaderboard"></div>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

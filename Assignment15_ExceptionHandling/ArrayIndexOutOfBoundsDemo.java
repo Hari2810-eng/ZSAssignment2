@@ -1,14 +1,18 @@
 public class ArrayIndexOutOfBoundsDemo {
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5};
+        int[] nums = {1, 2, 3, 4, 5};
+        int index = 10; 
         
         try {
-            int value = numbers[10];
-            System.out.println("Value at index 10: " + value);
+            if (index < 0 || index >= nums.length) {
+                throw new ArrayIndexOutOfBoundsException("Index " + index + " is out of bounds");
+            }
+            int value = nums[index];
+            System.out.println("Value at index " + index + ": " + value);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Caught Exception: " + e.getMessage());
         }
 
-        System.out.println("Program continues after the exception.");
+        System.out.println("Execution continues after exception handling.");
     }
 }

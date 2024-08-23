@@ -99,6 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebar.classList.toggle('hidden');
     });
 
+    playPauseButton.addEventListener('click', togglePlayPause);
+    prevButton.addEventListener('click', prevSong);
+    nextButton.addEventListener('click', nextSong);
+
     songs.forEach((song, index) => {
         const li = document.createElement('li');
         li.innerHTML = `<i class="fas fa-music"></i> ${song.title}`;
